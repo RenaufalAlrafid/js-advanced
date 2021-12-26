@@ -82,5 +82,54 @@ function mahasiswa(nama,energi){
     return mahasiswa;
 }
 
-let renaufal = mahasiswa('Renaufal' , 10);
-let doddy = mahasiswa('doddy', 20);
+// let renaufal = mahasiswa('Renaufal' , 10);
+// let doddy = mahasiswa('doddy', 20);
+
+
+//* Object.create(namaFunction.prototype) 
+
+function mahasiswa(nama,energi){
+    this.nama = nama;
+    this.energi = energi;
+    // return mahasiswa;
+}
+mahasiswa.prototype.makan = function(porsi){
+    this.energi += porsi;
+}
+mahasiswa.prototype.main = function(jam){
+    this.energi -= jam;
+}
+mahasiswa.prototype.tidur = function(jam){
+    this.energi += jam*2;
+}
+
+
+// let renaufal = new mahasiswa('Renaufal' , 10);
+// let doddy =  new mahasiswa('doddy', 20);
+
+
+// protype versi class
+
+
+class Mahasiswa5 {
+    constructor(nama,energi){
+        this.nama = nama;
+        this.energi = energi; 
+    }
+
+
+makan(porsi){
+    this.energi += porsi;
+}
+main(jam){
+    this.energi -= jam;
+}
+tidur(jam){
+    this.energi += jam*2;
+}
+
+}
+
+let renaufal = new mahasiswa('Renaufal' , 10);
+let doddy =  new mahasiswa('doddy', 20);
+
