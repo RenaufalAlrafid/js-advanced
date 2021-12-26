@@ -58,8 +58,29 @@ function mahasiswa(nama,energi){
 }
 
 
-let renaufal = new mahasiswa('Renaufal' , 10);
-let doddy = new mahasiswa('doddy', 20);
+// let renaufal = new mahasiswa('Renaufal' , 10);
+// let doddy = new mahasiswa('doddy', 20);
 
 
 //* object.create()
+
+const methodMahsiswa = {
+    makan: function(porsi){
+        this.energi += porsi;
+        console.log(`Halo ${this.nama}, Selamat Makan`);
+    },
+
+    main: function(jam){
+        this.energi -= jam;
+    }
+}
+
+function mahasiswa(nama,energi){
+    let mahasiswa = Object.create(methodMahsiswa);
+    mahasiswa.nama = nama;
+    mahasiswa.energi = energi;
+    return mahasiswa;
+}
+
+let renaufal = mahasiswa('Renaufal' , 10);
+let doddy = mahasiswa('doddy', 20);
