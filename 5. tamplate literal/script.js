@@ -28,3 +28,79 @@
 // </div>`;
 
 // console.log(el);
+
+//* 1. looping
+
+// const mhs = [
+//     {
+//         nama: 'renaufal',
+//         email: 'renaufal11@gmail.com'
+//     },
+//     {
+//         nama: 'yolo',
+//         email: 'renaufal11@gmail.com'
+//     },
+//     {
+//         nama: 'gess',
+//         email: 'renaufal11@gmail.com'
+//     }
+
+// ];
+
+// const el = `<div class="mhs">
+//     ${mhs.map(m => `<ul class="ul">
+//     <li> ${m.nama}</li>
+//     <li> ${m.email}</li>
+//     </ul>`).join('')}
+
+// </div>`
+
+
+//* conditional
+//ternary
+// const mhs = {
+//         nama: 'renaufal',
+//         umur: 22,
+//         nim: '409417',
+//     };
+
+// const el = `<div class="mhs">
+//     <ul class="ul">
+//     <li> ${mhs.nama}</li>
+//     <li> ${mhs.umur} ${mhs.email ? `(email : ${mhs.email})` : ``}</li>
+//     </ul>
+
+// </div>`
+
+//* nested
+
+const mhs = {
+            nama: 'renaufal',
+            semester: 5,
+            matkul: [
+                'rekayasa web',
+                'analisis metode geofisika',
+                'pemrogaman geofisika',
+                'metode seismik'
+            ]
+        };
+
+function cetakMataKuliah(matkul) {
+    return `
+    <ol class="">
+    ${matkul.map(mk=>`<li class="">${mk}</li>`).join('')}
+    </ol>
+    `;
+}
+
+
+const el = `<div class="mhs">
+    <h2>nama :${mhs.nama}</h2>
+    <span class="semester"> Semester :${mhs.semester}</span>
+    <h4 class="">mata kuliah</h4>
+    ${cetakMataKuliah(mhs.matkul)}
+</div>`;
+
+
+
+document.body.innerHTML = el;
